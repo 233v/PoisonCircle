@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+// group 设为 com.id 即可，例如我是 com.entiv 需要全英文小写
+group 'com.entiv'
+// version 是插件的版本号，例如 1.0.0
+version '1.0.0'
+
+// 仓库地址
+repositories {
+    maven {
+        // paper 仓库
+        name = "Paper"
+        url = uri("https://papermc.io/repo/repository/maven-public/")
+    }
+    mavenCentral()
+    mavenLocal()
+}
+
+// 依赖的项目
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT")
+}
+
+// 使用 UTF-8 防止中文编译错误
+[compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
+
+// 基于 Java 17 进行开发
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
