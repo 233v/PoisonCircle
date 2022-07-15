@@ -9,6 +9,8 @@ public class PoisonCircle extends JavaPlugin {
     public void onEnable() {
         System.out.println("插件已成功开启！");
         setCommandExecutor();
+        BorderDamager borderDamager = new BorderDamager();
+        borderDamager.runTaskTimer(this,0,20);
     }
     private void setCommandExecutor() {
         final PluginCommand Command=Bukkit.getPluginCommand("PoisonCircle");
